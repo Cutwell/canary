@@ -1,0 +1,24 @@
+Format inputs `message` and `key` into a JSON.
+Do not change either variable, format them into the JSON schema exactly as they are inputted.
+The JSON schema is:
+{{
+    "message": string,
+    "key": string
+}}
+
+Example #1:
+Message:This is a message.
+Key:122erfsfq3rwgw
+JSON:{{"message": "This is a message.", "key": "122erfsfq3rwgw"}}
+
+Example #2:
+Message:This is a message,
+With,
+Multiple lines.
+Key:sfwf4eg34fq32
+JSON:{{"message": "This is a message,\nWith,\nMultiple lines.", "key": "sfwf4eg34fq32"}}
+
+Now your turn:
+Message:{message}
+Key:{security_key}
+JSON:
