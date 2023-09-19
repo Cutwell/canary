@@ -3,9 +3,9 @@
 
 ## How it works
 
-1. Potentially malicious user submits input.
-2. Input is passed through a prompt designed to accept user input + a unique key generated at runtime.
-3. If the output is an invalid JSON or the key doesn't match, then there is a chance of prompt injection.
+1. User submits a potentially malicious message.
+2. The message is passed through a LLM prompted to format the message plus a unique key into a JSON. In the event the message is a malicious prompt, this output should be compromised.
+3. If the output is an invalid JSON, is missing a key, or a key-value doesn't match the expected values, then the integrity may be compromised.
 
 ## Install
 
