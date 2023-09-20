@@ -42,4 +42,4 @@ test: ## Run all unit tests locally
 
 .PHONY: dev
 dev: ## Run API locally
-	@poetry run python -m uvicorn integrity.src.main:app --reload --port=8000
+	@poetry run python -m uvicorn canary.src.main:app --reload --port=8000

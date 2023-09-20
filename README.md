@@ -21,7 +21,7 @@ make test       # Run unit tests to check installation
 ## Usage
 
 * Run `make dev` to run a default `uvicorn` server.
-* Run `poetry run python -m uvicorn integrity.src.main:app --reload --port=8000` to customise your deployment settings.
+* Run `poetry run python -m uvicorn canary.src.main:app --reload --port=8000` to customise your deployment settings.
 
 ## FastAPI Docs
 
