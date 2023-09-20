@@ -1,10 +1,12 @@
 [tool.poetry]
-name = "integrity"
+name = "canary"
 version = "0.1.0"
-description = "desc"
-authors = ["Zachary <22395357+Cutwell@users.noreply.github.com>"]
+description = "LLM prompt injection detection."
+authors = ["Zachary Smith <zachsmith.dev@gmail.com>"]
+packages = [{include = "canary"}]
 license = "MIT"
 readme = "README.md"
+repository = "https://github.com/Cutwell/canary"
 
 [tool.poetry.dependencies]
 python = "^3.11"

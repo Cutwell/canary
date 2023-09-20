@@ -1,4 +1,4 @@
-# <img src="./integrity.png" style="width:64px;padding-right:20px;margin-bottom:-8px;">Integrity
+# <img src="https://raw.githubusercontent.com/Cutwell/canary/main/canary.png" style="width:64px;padding-right:20px;margin-bottom:-8px;">Canary
  LLM prompt injection detection
 
 ## How it works

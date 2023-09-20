@@ -2,10 +2,10 @@ from langchain.prompts import PromptTemplate
 from langchain.llms import OpenAI
 from langchain.chains import LLMChain
 
-with open("integrity/src/prompts/chatbot.txt", "r") as file:
+with open("canary/src/prompts/chatbot.txt", "r") as file:
     chatbot_prompt_template = file.read()
 
-with open("integrity/src/prompts/integrity.txt", "r") as file:
+with open("canary/src/prompts/integrity.txt", "r") as file:
     integrity_prompt_template = file.read()
 
 chatbot_llm = OpenAI(temperature=0)
