@@ -1,5 +1,5 @@
 # <img src="https://raw.githubusercontent.com/Cutwell/canary/main/canary.png" style="width:64px;padding-right:20px;margin-bottom:-8px;">Canary
- LLM prompt injection detection
+ LLM prompt injection detection.
 
 ## How it works
 
@@ -15,6 +15,12 @@ graph TD
     B -->|Integrity check fails.\n\nResponse is error message.| D
     C -->|Response is chatbot message.| D[4. Return Integrity and Response]
 ```
+
+What this solution can do:
+* Detect inputs that override an LLMs initial / system prompt.
+
+What this solution cannot do:
+* Neutralise malicious prompts.
 
 ## Install
 
