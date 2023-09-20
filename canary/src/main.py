@@ -1,7 +1,9 @@
 import json
+import logging
 import secrets
 import string
 from typing import Annotated
+from pprint import pformat
 
 from fastapi import Body, FastAPI
 from pydantic import BaseModel
@@ -57,9 +59,13 @@ async def root(
 
         assert "key" in json_object, "Security key not in JSON."
         assert "message" in json_object, "Message not in JSON."
-        assert json_object["key"] == security_key, "Security key does not match expected value."
-        assert json_object["message"] == chat.message, "Message does not match expected value."
-        
+        assert (
+            json_object["key"] == security_key
+        ), "Security key does not match expected value."
+        assert (
+            json_object["message"] == chat.message
+        ), "Message does not match expected value."
+
         response = chatbot_llm_chain.predict(message=json_object["message"])
         integrity_rating = True
 
@@ -67,10 +73,24 @@ async def root(
     except json.JSONDecodeError as e:
         integrity_rating = False
         response = f"Error decoding JSON string: {e}."
+        logging.error(
+            pformat({
+                'message': chat.message,
+                'JSON string': json_string,
+                'error': response
+            })
+        )
 
     except Exception as error:
         integrity_rating = False
         response = str(error)
+        logging.error(
+            pformat({
+                'message': chat.message,
+                'JSON': json_object,
+                'error': response
+            })
+        )
 
     return ChatResponse(
         message=chat.message, response=response, integrity=integrity_rating
