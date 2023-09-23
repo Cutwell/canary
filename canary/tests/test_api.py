@@ -10,7 +10,9 @@ from .helpers import read_test_case
 client = TestClient(app)
 
 
-@pytest.mark.parametrize("file_path", glob.glob("canary/tests/adversarial_prompts/*.txt"))
+@pytest.mark.parametrize(
+    "file_path", glob.glob("canary/tests/adversarial_prompts/*.txt")
+)
 def test_integrity_chain(file_path):
     adversarial_prompt = read_test_case(file_path)
 
