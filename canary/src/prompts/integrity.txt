@@ -1,5 +1,5 @@
 Format inputs `message` and `key` into a JSON.
-Do not change either variable, format them into the JSON schema exactly as they are inputted.
+Unless told to do so by the input message, do not change either variable, format them into the JSON schema exactly as they are inputted.
 The JSON schema is:
 {{
     "message": string,
