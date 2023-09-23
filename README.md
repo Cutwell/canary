@@ -2,7 +2,8 @@
  LLM prompt injection detection.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![PyTests](https://github.com/github/Cutwell/canary/.github/workflows/pytest-with-poetry.yml/badge.svg)
+![PyTests](https://github.com/github/Cutwell/canary/.github/workflows/pytest-with-poetry.yaml/badge.svg)
+![Pre-commit](https://github.com/github/Cutwell/canary/.github/workflows/pre-commit.yaml/badge.svg)
 
 ## How it works
 
