@@ -45,21 +45,13 @@ def check_integrity(message: str) -> bool:
     except json.JSONDecodeError as e:
         response = f"Error decoding JSON string: {e}."
         logging.error(
-            pformat({
-                'message': message,
-                'JSON string': json_string,
-                'error': response
-            })
+            pformat({"message": message, "JSON string": json_string, "error": response})
         )
         return False, response
 
     except Exception as error:
         response = str(error)
         logging.error(
-            pformat({
-                'message': message,
-                'JSON': json_object,
-                'error': response
-            })
+            pformat({"message": message, "JSON": json_object, "error": response})
         )
         return False, response

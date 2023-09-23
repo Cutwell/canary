@@ -10,12 +10,10 @@ with open("canary/src/prompts/integrity.txt", "r") as file:
 
 chatbot_llm = OpenAI(temperature=0)
 chatbot_llm_chain = LLMChain(
-    llm=chatbot_llm,
-    prompt=PromptTemplate.from_template(chatbot_prompt_template)
+    llm=chatbot_llm, prompt=PromptTemplate.from_template(chatbot_prompt_template)
 )
 
 integrity_llm = OpenAI(temperature=0)
 integrity_llm_chain = LLMChain(
-    llm=integrity_llm,
-    prompt=PromptTemplate.from_template(integrity_prompt_template)
+    llm=integrity_llm, prompt=PromptTemplate.from_template(integrity_prompt_template)
 )
