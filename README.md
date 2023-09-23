@@ -1,6 +1,9 @@
 # <img src="https://raw.githubusercontent.com/Cutwell/canary/main/canary.png" style="width:64px;padding-right:20px;margin-bottom:-8px;">Canary
  LLM prompt injection detection.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![PyTests](https://github.com/github/Cutwell/canary/.github/workflows/pytest-with-poetry.yml/badge.svg)
+
 ## How it works
 
 1. User submits a potentially malicious message.
