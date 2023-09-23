@@ -61,6 +61,8 @@ jobs:
       #              run test suite
       #----------------------------------------------
       - name: Run tests
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           source .venv/bin/activate
           pytest -s .
