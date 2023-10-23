@@ -11,11 +11,14 @@ PYTHON_INTERPRETER = python3
 # COMMANDS                                                                      #
 #################################################################################
 
-.PHONY: help
-help:	## Show this help.
+.PHONY: help pre-commit install clean test dev
+
+# Default target executed when no arguments are given to make.
+all: help
+
+help: ## Show this help screen.
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: pre-commit
 pre-commit: ## Runs the pre-commit over entire repo
 	@poetry run pre-commit run --all-files
 
@@ -27,19 +30,15 @@ define install_dependencies
 	poetry install --sync --with dev
 endef
 
-.PHONY: install
-install: ## Install dependencies
+install: ## Install dependencies with Poetry.
 	@$(call install_dependencies)
 
-.PHONY: clean
-clean: ## Delete all Python cache files
+clean: ## Delete all Python cache files.
 	@find . -type d -name "__pycache__" -prune -exec rm -rf {} \; &&\
 	find . -type d -name ".pytest_cache" -prune -exec rm -rf {} \; &&\
 
-.PHONY: test
-test: ## Run all unit tests locally
+test: ## Run all unit tests locally.
 	@poetry run python -m pytest -s .
 
-.PHONY: dev
-dev: ## Run API locally
-	@poetry run python -m uvicorn canary.src.main:app --reload --port=8000
+start: ## Run API locally.
+	@poetry run python -m uvicorn canary.src.main:app --reload

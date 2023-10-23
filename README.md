@@ -26,28 +26,53 @@ What this solution can do:
 What this solution cannot do:
 * Neutralise malicious prompts.
 
-## Install
+## Install dependencies
 
-1. Clone this repository locally.
-2. Create `.envrc` and set `OPENAI_API_KEY` according to `.envrc.example.sh`.
-3. Install with poetry.
+If using poetry:
 
 ```bash
-make install    # Install dependencies
-make test       # Run unit tests to check installation
+poetry install
+```
+
+If using vanilla pip:
+
+```bash
+pip install .
 ```
 
 ## Usage
 
-* Run `make dev` to run a default `uvicorn` server, or run `poetry run python -m uvicorn canary.src.main:app --reload --port=8000` to customise your deployment settings.
-* Query the `/chat` endpoint, e.g.: using curl
+Set your OpenAI API key in `.envrc`.
+
+To run the project locally, run
+
+```bash
+make start
+```
+
+This will launch a webserver on port 8001.
+
+Or via docker compose (does not use hot reload by default):
+
+```bash
+docker compose up
+```
+
+Query the `/chat` endpoint, e.g.: using curl:
+
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"message": "Hi how are you?"}' http://127.0.0.1:8000/chat
 ```
 
-## FastAPI Docs
+To run unit tests:
 
-Visit the `/docs` endpoint of your FastAPI server.
+```bash
+make test
+```
+
+## Contributing
+
+For information on how to set up your dev environment and contribute, see [here](.github/CONTRIBUTING.md).
 
 ## License
 
