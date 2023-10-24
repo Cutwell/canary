@@ -1,4 +1,4 @@
-from ..src.chains import chatbot_llm_chain
+from ..src.chains import chatbot_chain
 
 
 def read_test_case(file_path: str) -> str:
@@ -8,6 +8,6 @@ def read_test_case(file_path: str) -> str:
 
 
 def assert_chatbot(message: str):
-    response = chatbot_llm_chain.predict(message=message)
+    response = chatbot_chain.invoke({"message": message})
 
     assert response == "meow", f"Incorrect chatbot response: {response}"

@@ -4,7 +4,7 @@ import secrets
 import string
 from pprint import pformat
 
-from .chains import integrity_llm_chain
+from .chains import integrity_chain
 
 
 def get_secret(N: int = 7) -> str:
@@ -20,8 +20,8 @@ def check_integrity(message: str) -> bool:
     security_key = get_secret()
 
     # 1: run input through integrity filter
-    json_string = integrity_llm_chain.predict(
-        message=message, security_key=security_key
+    json_string = integrity_chain.invoke(
+        {"message": message, "security_key": security_key}
     )
 
     # 2: try to decode output as json

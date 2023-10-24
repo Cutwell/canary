@@ -2,7 +2,7 @@ from typing import Annotated
 
 from fastapi import Body, FastAPI
 
-from .chains import chatbot_llm_chain
+from .chains import chatbot_chain
 from .integrity import check_integrity
 from .schema import ChatMessage, ChatResponse
 
@@ -29,7 +29,7 @@ async def root(
     integrity_rating, response = check_integrity(chat.message)
 
     if integrity_rating:
-        response = chatbot_llm_chain.predict(message=chat.message)
+        response = chatbot_chain.invoke({"message": chat.message})
 
     return ChatResponse(
         message=chat.message, response=response, integrity=integrity_rating
