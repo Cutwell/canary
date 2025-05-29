@@ -14,10 +14,10 @@
 
 ```mermaid
 graph TD
-    A[1. User Inputs Chat Message] --> B[2. Integrity Filter]
-    B -->|Integrity check passes.| C[3. Generate Chatbot Response]
-    B -->|Integrity check fails.\n\nResponse is error message.| D
-    C -->|Response is chatbot message.| D[4. Return Integrity and Response]
+    A[1: User Inputs Chat Message] --> B[2: Integrity Filter]
+    B -->|Integrity check passes.| C[3: Generate Chatbot Response]
+    B -->|Integrity check fails. Response is error message.| D
+    C -->|Response is chatbot message.| D[4: Return Integrity and Response]
 ```
 
 What this solution can do:
